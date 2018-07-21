@@ -21,6 +21,7 @@ while True:
 	cv2.drawContours(img, contours, -1, (255,0,0), 3)
 	for i in range(len(contours)):
 		x,y,w,h = cv2.boundingRect(conts[i])
+		cv2.rectangle(img, (x,y), (x+w, y+h), (0,0,255), 2)
 
 	cv2.imshow("Camera", img)
 	cv2.imshow("Masked General", mask)
