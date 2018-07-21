@@ -17,10 +17,10 @@ while True:
 	maskOpen = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernelO)
 	maskClose = cv2.morphologyEx(maskOpen, cv2.MORPH_CLOSE, kernelC)
 
-	i2, contours, h = cv.findContours(maskClose.copy(), cv.CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE)
+	i2, contours, h = cv2.findContours(maskClose.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 	cv2.drawContours(img, contours, -1, (255,0,0), 3)
 	for i in range(len(contours)):
-		x,y,w,h = cv2.boundingRect(conts[i])
+		x,y,w,h = cv2.boundingRect(contours[i])
 		cv2.rectangle(img, (x,y), (x+w, y+h), (0,0,255), 2)
 
 	cv2.imshow("Camera", img)
